@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Hang</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            font-family: 'Open Sans', sans-serif;
             background-color: #08080A;
             color: #FFFFFF;
-            font-family: 'Open Sans', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            text-align: center;
         }
-        .ring {
-            width: 200px;
-            height: 200px;
-            border: 10px solid transparent;
-            border-radius: 50%;
-            border-top-color: #504CE5;
-            border-bottom-color: #DE3486;
+        .container {
+            max-width: 600px;
+            padding: 20px;
         }
         h1 {
-            font-size: 36px;
+            font-size: 48px;
             margin-bottom: 20px;
-            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            background-color: #504CE5;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #DE3486;
         }
     </style>
 </head>
 <body>
-    <div class="ring"></div>
-    <h1>Coming Soon...</h1>
+    <div class="container">
+        <h1>Hang Tight</h1>
+        <p>We're creating something special just for you!</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
 </body>
 </html>
