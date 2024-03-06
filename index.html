@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #504CE5, #DE3486);
+            background-color: #08080A;
             color: #FFFFFF;
             font-family: 'Open Sans', sans-serif;
             display: flex;
@@ -16,13 +16,23 @@
             align-items: center;
             height: 100vh;
         }
+        .ring {
+            width: 200px;
+            height: 200px;
+            border: 10px solid transparent;
+            border-radius: 50%;
+            border-top-color: #504CE5;
+            border-bottom-color: #DE3486;
+        }
         h1 {
-            font-size: 48px;
+            font-size: 36px;
+            margin-bottom: 20px;
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <div class="ring"></div>
     <h1>Coming Soon</h1>
 </body>
 </html>
