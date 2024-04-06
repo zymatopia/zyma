@@ -8,7 +8,7 @@
 <style>
   body {
     font-family: 'Open Sans', Arial, sans-serif;
-    background: linear-gradient(to right, rgba(80, 76, 229, 1), rgba(222, 52, 134, 1));
+    background: #08080a;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -25,6 +25,9 @@
     margin-bottom: 20px;
     opacity: 0;
     animation: textFadeIn 3s ease-in forwards;
+    background: linear-gradient(to right, rgba(80, 76, 229, 1), rgba(222, 52, 134, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   @keyframes textFadeIn {
     0% {
@@ -34,15 +37,40 @@
       opacity: 1;
     }
   }
+  .fade-out {
+    animation: fadeOut 3s ease-in forwards;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 </style>
 </head>
 <body>
   <div class="animation-container">
-    <video controls autoplay loop>
+    <video id="animationVideo" controls autoplay loop>
       <source src="https://github.com/zymatopia/zyma/raw/main/spl-p-03.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-  <div class="text">Hang tight...</div>
+  <div id="textContainer" class="text fade-out">Hang tight...</div>
+
+  <script>
+    const video = document.getElementById('animationVideo');
+    const textContainer = document.getElementById('textContainer');
+
+    // Wait for the video to finish playing
+    video.addEventListener('ended', () => {
+      // Fade out the video
+      video.classList.add('fade-out');
+      // Fade in the text
+      textContainer.style.opacity = 1;
+      textContainer.classList.add('textFadeIn');
+    });
+  </script>
 </body>
 </html>
