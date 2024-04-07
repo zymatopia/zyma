@@ -8,74 +8,65 @@
 <style>
   body {
     font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #000000; /* Black background */
+    background-color: #08080a; /* Updated background color */
     color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Hide overflow to prevent scrolling */
   }
   .animation-container {
     width: 100%;
-    max-width: 600px; /* Adjust as needed */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 600px;
+    text-align: center; /* Center contents */
+    padding: 20px; /* Add padding for better spacing */
   }
   .text {
     font-size: 3rem;
-    margin-bottom: 20px;
     opacity: 0;
-    animation: textFadeIn 3s ease-in forwards;
+    animation: textFade 3s ease-in-out forwards;
     background: linear-gradient(to right, rgba(80, 76, 229, 1), rgba(222, 52, 134, 1));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  @keyframes textFadeIn {
+  @keyframes textFade {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation: fadeIn 3s ease-in-out forwards;
+  }
+  @keyframes fadeIn {
     0% {
       opacity: 0;
     }
     100% {
       opacity: 1;
-    }
-  }
-  .fade-out {
-    animation: fadeOut 3s ease-in forwards;
-  }
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
     }
   }
 </style>
 </head>
 <body>
   <div class="animation-container">
-    <video id="animationVideo" autoplay loop>
-      <source src="https://github.com/zymatopia/zyma/raw/main/spl-p-03.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <img src="https://raw.githubusercontent.com/zymatopia/zyma/main/Party.png" alt="Hang tight...">
+    <div id="textContainer" class="text fade-in">Hang tight...</div>
   </div>
-  <div id="textContainer" class="text fade-out">Hang tight...</div>
 
   <script>
-    const video = document.getElementById('animationVideo');
     const textContainer = document.getElementById('textContainer');
 
-    // Start the video from the beginning
-    video.currentTime = 0;
-
-    // Wait for the video to finish playing
-    video.addEventListener('ended', () => {
-      // Fade out the video
-      video.classList.add('fade-out');
-      // Fade in the text
-      textContainer.style.opacity = 1;
-      textContainer.classList.add('textFadeIn');
+    // Wait for the document to load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fade out the initial text
+      textContainer.classList.remove('fade-in');
+      textContainer.classList.add('textFade');
     });
   </script>
 </body>
