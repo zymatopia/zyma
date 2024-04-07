@@ -26,24 +26,12 @@
   }
   .text {
     font-size: 3rem;
-    opacity: 0;
-    animation: textFade 3s ease-in-out forwards;
     background: linear-gradient(to right, rgba(80, 76, 229, 1), rgba(222, 52, 134, 1));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: textFadeInOut 3s ease-in-out infinite alternate; /* Looping animation */
   }
-  @keyframes textFade {
-    0%, 100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-  .fade-in {
-    animation: fadeIn 3s ease-in-out forwards;
-  }
-  @keyframes fadeIn {
+  @keyframes textFadeInOut {
     0% {
       opacity: 0;
     }
@@ -56,18 +44,7 @@
 <body>
   <div class="animation-container">
     <img src="https://raw.githubusercontent.com/zymatopia/zyma/main/Party.png" alt="Hang tight...">
-    <div id="textContainer" class="text fade-in">Hang tight...</div>
+    <div class="text">Hang tight...</div>
   </div>
-
-  <script>
-    const textContainer = document.getElementById('textContainer');
-
-    // Wait for the document to load
-    document.addEventListener('DOMContentLoaded', () => {
-      // Fade out the initial text
-      textContainer.classList.remove('fade-in');
-      textContainer.classList.add('textFade');
-    });
-  </script>
 </body>
 </html>
