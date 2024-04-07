@@ -22,28 +22,29 @@
     max-width: 600px;
     text-align: center; /* Center contents horizontally */
     padding: 20px; /* Add padding for better spacing */
+    margin-top: -20px; /* Move container higher */
   }
   .text {
     font-size: 2rem; /* Reduced font size for mobile */
     background: linear-gradient(to right, rgba(80, 76, 229, 1), rgba(222, 52, 134, 1));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: textFadeInOut 3s ease-in-out infinite alternate; /* Looping animation */
+    animation: textGradientMove 5s ease-in-out infinite alternate; /* Looping animation */
   }
-  @keyframes textFadeInOut {
+  @keyframes textGradientMove {
     0% {
-      opacity: 0;
+      background-position: 0 50%; /* Start position */
     }
     100% {
-      opacity: 1;
+      background-position: 100% 50%; /* End position */
     }
   }
 </style>
 </head>
 <body>
   <div class="animation-container">
-    <img src="https://raw.githubusercontent.com/zymatopia/zyma/main/Party.png" alt="Hang tight..." style="max-width: 100%;">
-    <div class="text">Hang tight...</div>
+    <img src="https://raw.githubusercontent.com/zymatopia/zyma/main/Party.png" alt="Hang tight..." style="max-width: 100%; margin-top: -20px;"> <!-- Move image higher -->
+    <div class="text" style="margin-top: -20px;">Hang tight...</div> <!-- Move text higher -->
   </div>
 </body>
 </html>
